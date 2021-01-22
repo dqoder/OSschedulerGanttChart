@@ -1,0 +1,288 @@
+*{
+    box-sizing:border-box;
+    font-family: 'Cascadia Code PL', 'Fira Code','Courier New', Courier, monospace;
+    margin:0;
+}
+
+button{
+    cursor: pointer;
+    border-radius: 0;
+    border: 1px solid;
+}
+
+body{
+    background:white;
+    height: 100vh;
+    /* width: 100%; */
+}
+
+.table-container{
+    /* background: blue; */
+    /* height: 100px; */
+    /* width: 100px; */
+    margin: 100px 0px;    
+    /* padding: 10px; */
+}
+
+table.Gantt{
+    /* background: violet; */
+    margin: 30px auto 50px auto ;
+    border-collapse: separate;
+    border-collapse: unset;
+    border-collapse: collapse;
+    
+}
+table.Gantt tr{
+    /* background: rgba(41,42,52,.5); */
+    margin: 0;
+    border: 0;
+    
+}
+
+table.Gantt td{
+    border:0;
+}
+
+table.Gantt.process td{
+    font-weight: bolder;
+    border-right: 1px solid black;
+    /* font-size: smaller; */
+    min-width: 1.4em;
+}
+
+table.Gantt.process td:first-child{
+    font-weight: bolder;
+    border-right: 1px solid black;
+    /* font-size: smaller; */
+    padding: 3px;
+}
+
+table.Gantt td:not(:first-of-type){
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    margin: 0;
+    text-align: center;
+}
+
+table.Gantt th{
+    font-size: small;
+    padding: 2px 4px;
+}
+
+
+
+table.Gantt th:not(:first-of-type){
+    border-bottom: 1px solid black;
+}
+
+
+
+table.CPU td, table.IO td{
+    border: 1px solid black;
+    font-size: small;
+    padding: 4px;
+    text-align: center;
+    font-weight: normal;
+}
+
+div.scheduling{
+    margin-top: 20px;
+    border-top: 2.5px double black;
+    padding: 20px;
+}
+
+#input{
+    /* border: 2px solid black; */
+    border-collapse: collapse;
+    margin: 10px auto
+}
+
+#input th:not(:last-of-type){
+    background: yellowgreen;
+}
+
+
+#input th:not(:last-of-type){
+    border: 2px solid black;
+    padding: 2px;
+}
+
+
+#input td:not(:last-of-type){
+    border: 1px solid black;
+    text-align: center;
+    background-color: lightblue;
+}
+
+#input td:first-of-type{
+    text-align: right;
+    padding-right: 5px;
+    font-style: oblique;
+    font-weight: bold;
+    border: 2px solid black;
+    background: burlywood;
+}
+
+#input div{
+    display: flex;
+}
+
+#input  button{
+    cursor: pointer;
+    display : inline-block;    
+    flex: 1 1 1000%;
+    outline:0;
+    border: 0;
+    border-radius:0;
+    /* margin: 2px 10px; */
+}
+
+#input button.add{
+    background: limegreen;
+    margin-left: 10px;
+}
+
+#input button.del{
+    background: red;
+}
+
+#input tr td:last-of-type{
+    border: none;
+    border-left: 2px solid black;
+    padding: 1px;
+}
+
+#input tr:last-of-type td:not(:last-of-type){
+    border-bottom: 2px solid black;
+}
+
+.input-table-container .button-container{
+    width: 70%;
+    margin: 2px auto;
+    display: flex;
+    gap: 10px;
+    /* background-color: yellow; */
+}
+
+.button-container button{    
+    display: block;
+    /* flex: 1 1 100%; */
+    display: block;
+    background:whited;
+}
+
+.button-container button:first-of-type{
+    margin-left: auto;
+}
+.button-container button:last-of-type{
+    margin-right: auto;
+}
+
+
+table.legend {
+    margin: 10px auto;
+    margin-bottom: 70px;
+    border-collapse: collapse;
+    
+    /* border: 2px solid red; */
+}
+
+table.legend td:nth-of-type(odd){
+    border: 1px solid black !important;
+}
+
+table.legend td:nth-of-type(even){
+    margin:0 15px 0 5px;
+    font-size: 11px;
+    display: inline-block;
+    border: 0;
+}
+
+table.process td{
+    width: 20px;
+}
+
+div.Gantt-heading{
+    font-size: large;
+    font-style: italic;
+    text-align: center;
+    margin: 10px auto 30px auto;
+    
+    width: 60%;
+    border-bottom: 1px double black;
+    /* margin-bottom: 100px; */
+}
+
+#input-heading{
+    font-size: x-large;
+    font-style: italic;
+    text-align: center;
+    margin: 50px auto;
+    width: 60%;
+    border-bottom: 1px double black;
+    
+}
+
+.output{
+    border-collapse: collapse;
+    margin:10px auto 100px auto;
+    font-size: small;
+}
+
+.output thead{
+    background:yellowgreen;
+    
+}
+
+.output th{
+    border: 2px solid black;
+    padding: 2px 5px;
+}
+
+.output th:not(:first-of-type){
+    font-style: oblique;
+}
+
+.output td{
+    border: 1px solid black;
+    text-align: center;
+}
+
+.output tfoot{
+    border: 2px solid black;
+}
+.output tfoot td{
+    background: cyan;
+    text-align: right;
+    font-weight: bold;
+    padding-right: 5px;
+}
+
+
+.output tfoot td:first-of-type{
+    border-right: 2px solid black;;
+}
+
+.output tbody tr td{
+    background: lightblue;
+}
+
+.output tbody tr td:first-of-type{
+    text-align: right;
+    padding-right: 8px;
+    font-weight: bold;
+    font-style:italic;
+    border: 2px solid black;
+    background:burlywood;
+}
+
+.output tbody tr td:last-of-type{
+    border-right: 2px solid black;
+}
+
+
+h3{
+    margin: 100px auto 60px auto ;
+    text-align: center;
+    font-size: xx-large;
+}

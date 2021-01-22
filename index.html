@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>table generation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="input-heading">Input here</div>
+
+    <div class="input-table-container">
+        <table id="input">
+            <thead>
+                <tr>
+                    <th>Process</th>
+                    <th>ArrivalTime</th>
+                    <th>CPUBurst</th>
+                    <th>IOBurst</th>
+                    <th>CPUBurst</th>
+                    <th>Priority</th>
+                    <th>
+                        <div>
+                            <button class="add" onclick="addRowInInputTable(this)">add&darr;</button>
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>P1</td>
+                    <td contenteditable>0</td>
+                    <td contenteditable>4</td>
+                    <td contenteditable>3</td>
+                    <td contenteditable>5</td>
+                    <td contenteditable>0</td>
+                    <td>
+                        <div>
+                            <button class="add" onclick="addRowInInputTable(this)">add&darr;</button>
+                            <button class="del" onclick="delRowFromInputTable(this)">del</button>
+                        </div>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>P2</td>
+                    <td contenteditable>0</td>
+                    <td contenteditable>5</td>
+                    <td contenteditable>4</td>
+                    <td contenteditable>2</td>
+                    <td contenteditable>5</td>
+                    <td>
+                        <div>
+                            <button class="add" onclick="addRowInInputTable(this)">add&darr;</button>
+                            <button class="del" onclick="delRowFromInputTable(this)">del</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>P3</td>
+                    <td contenteditable>0</td>
+                    <td contenteditable>3</td>
+                    <td contenteditable>2</td>
+                    <td contenteditable>3</td>
+                    <td contenteditable>5</td>
+                    <td>
+                        <div>
+                            <button class="add" onclick="addRowInInputTable(this)">add&darr;</button>
+                            <button class="del" onclick="delRowFromInputTable(this)">del</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>P4</td>
+                    <td contenteditable>0</td>
+                    <td contenteditable>2</td>
+                    <td contenteditable>1</td>
+                    <td contenteditable>4</td>
+                    <td contenteditable>5</td>
+                    <td>
+                        <div>
+                            <button class="add" onclick="addRowInInputTable(this)">add&darr;</button>
+                            <button class="del" onclick="delRowFromInputTable(this)">del</button>
+                        </div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <div class="button-container">
+            <button onclick="extractInputData();schedule()">generate schedule</button>
+            <button onclick="loadDataFromJSON()">Load from json</button>
+        </div>
+    </div>
+
+    <!-- scheduling -->
+    <div class="table-container">
+        <div class="scheduling" id="FCFS" hidden>
+            <h3>FCFS</h3>
+            <div class="Gantt-heading">Process Gantt chart</div>
+            <table class="Gantt process">
+                <thead></thead>
+                <tbody></tbody>
+            </table>
+
+            <table class="Gantt legend">
+                <tbody>
+                    <tr></tr>
+                </tbody>
+            </table>
+
+            <div class="Gantt-heading">CPU Gantt chart</div>
+            <table class="Gantt CPU">
+                <thead></thead>
+                <tbody></tbody>
+            </table>
+
+            <div class="Gantt-heading">IO Gantt chart</div>
+            <table class="Gantt IO">
+                <thead></thead>
+                <tbody></tbody>
+            </table>
+
+            <div class="Gantt-heading">Average time calculations</div>
+            <table class="output time">
+                <thead>
+                    <tr>
+                        <th>Process</th>
+                        <th>time<sub>turnaround</sub></th>
+                        <th>time<sub>response</sub></th>
+                        <th>time<sub>waiting</sub></th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot>
+                    <tr>
+                        <td>average</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <div class="scheduling" id="SJF" hidden>
+            <h3>SJF</h3>
+            <div class="Gantt-heading">Process Gantt chart</div>
+            <table class="Gantt process">
+                <thead></thead>
+                <tbody></tbody>
+            </table>
+
+            <table class="Gantt legend">
+                <tbody>
+                    <tr></tr>
+                </tbody>
+            </table>
+
+            <div class="Gantt-heading">CPU Gantt chart</div>
+            <table class="Gantt CPU">
+                <thead></thead>
+                <tbody></tbody>
+            </table>
+
+            <div class="Gantt-heading">IO Gantt chart</div>
+            <table class="Gantt IO">
+                <thead></thead>
+                <tbody></tbody>
+            </table>
+
+            <div class="Gantt-heading">Average time calculations</div>
+            <table class="output time">
+                <thead>
+                    <tr>
+                        <th>Process</th>
+                        <th>time<sub>turnaround</sub></th>
+                        <th>time<sub>response</sub></th>
+                        <th>time<sub>waiting</sub></th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot>
+                    <tr>
+                        <td>average</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+        <div class="scheduling" id="SRTF" hidden>
+            <h3>SRTF</h3>
+            <div class="Gantt-heading">Process Gantt chart</div>
+            <table class="Gantt process">
+                <thead></thead>
+                <tbody></tbody>
+            </table>
+
+            <table class="Gantt legend">
+                <tbody>
+                    <tr></tr>
+                </tbody>
+            </table>
+
+            <div class="Gantt-heading">CPU Gantt chart</div>
+            <table class="Gantt CPU">
+                <thead></thead>
+                <tbody></tbody>
+            </table>
+
+            <div class="Gantt-heading">IO Gantt chart</div>
+            <table class="Gantt IO">
+                <thead></thead>
+                <tbody></tbody>
+            </table>
+
+            <div class="Gantt-heading">Average time calculations</div>
+            <table class="output time">
+                <thead>
+                    <tr>
+                        <th>Process</th>
+                        <th>time<sub>turnaround</sub></th>
+                        <th>time<sub>response</sub></th>
+                        <th>time<sub>waiting</sub></th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot>
+                    <tr>
+                        <td>average</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+        <div class="scheduling" id="PSNP" hidden>
+            <h3>Priority (non-preemptive)</h3>
+            <div class="Gantt-heading">Process Gantt chart</div>
+            <table class="Gantt process">
+                <thead></thead>
+                <tbody></tbody>
+            </table>
+
+            <table class="Gantt legend">
+                <tbody>
+                    <tr></tr>
+                </tbody>
+            </table>
+
+            <div class="Gantt-heading">CPU Gantt chart</div>
+            <table class="Gantt CPU">
+                <thead></thead>
+                <tbody></tbody>
+            </table>
+
+            <div class="Gantt-heading">IO Gantt chart</div>
+            <table class="Gantt IO">
+                <thead></thead>
+                <tbody></tbody>
+            </table>
+
+            <div class="Gantt-heading">Average time calculations</div>
+            <table class="output time">
+                <thead>
+                    <tr>
+                        <th>Process</th>
+                        <th>time<sub>turnaround</sub></th>
+                        <th>time<sub>response</sub></th>
+                        <th>time<sub>waiting</sub></th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot>
+                    <tr>
+                        <td>average</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+        <div class="scheduling" id="PSP" hidden>
+            <h3>Priority (preemptive)</h3>
+            <div class="Gantt-heading">Process Gantt chart</div>
+            <table class="Gantt process">
+                <thead></thead>
+                <tbody></tbody>
+            </table>
+
+            <table class="Gantt legend">
+                <tbody>
+                    <tr></tr>
+                </tbody>
+            </table>
+
+            <div class="Gantt-heading">CPU Gantt chart</div>
+            <table class="Gantt CPU">
+                <thead></thead>
+                <tbody></tbody>
+            </table>
+
+            <div class="Gantt-heading">IO Gantt chart</div>
+            <table class="Gantt IO">
+                <thead></thead>
+                <tbody></tbody>
+            </table>
+
+            <div class="Gantt-heading">Average time calculations</div>
+            <table class="output time">
+                <thead>
+                    <tr>
+                        <th>Process</th>
+                        <th>time<sub>turnaround</sub></th>
+                        <th>time<sub>response</sub></th>
+                        <th>time<sub>waiting</sub></th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot>
+                    <tr>
+                        <td>average</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+        <div class="scheduling" id="RR">
+            <h3>Round Robin</h3>
+            <div class="Gantt-heading">Process Gantt chart</div>
+            <table class="Gantt process">
+                <thead></thead>
+                <tbody></tbody>
+            </table>
+
+            <table class="Gantt legend">
+                <tbody>
+                    <tr></tr>
+                </tbody>
+            </table>
+
+            <div class="Gantt-heading">CPU Gantt chart</div>
+            <table class="Gantt CPU">
+                <thead></thead>
+                <tbody></tbody>
+            </table>
+
+            <div class="Gantt-heading">IO Gantt chart</div>
+            <table class="Gantt IO">
+                <thead></thead>
+                <tbody></tbody>
+            </table>
+
+            <div class="Gantt-heading">Average time calculations</div>
+            <table class="output time">
+                <thead>
+                    <tr>
+                        <th>Process</th>
+                        <th>time<sub>turnaround</sub></th>
+                        <th>time<sub>response</sub></th>
+                        <th>time<sub>waiting</sub></th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot>
+                    <tr>
+                        <td>average</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
