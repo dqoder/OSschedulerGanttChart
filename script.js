@@ -1888,11 +1888,11 @@ function RR(tableData = tableDataObj) {
 
 
 function schedule() {
-    // FCFS()
-    // SJF()
-    // SRTF()
-    // PSNP()
-    // PSP()
+    FCFS()
+    SJF()
+    SRTF()
+    PSNP()
+    PSP()
     RR()
 }
 // create input table : add/del rows

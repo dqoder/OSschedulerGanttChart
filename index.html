@@ -4,6 +4,7 @@
 <head>
     <title>table generation</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="" href="favicon.ico">
 </head>
 
 <body>
@@ -89,13 +90,13 @@
         </table>
         <div class="button-container">
             <button onclick="extractInputData();schedule()">generate schedule</button>
-            <button onclick="loadDataFromJSON()">Load from json</button>
+            <!-- <button onclick="loadDataFromJSON()">Load from json</button> -->
         </div>
     </div>
 
     <!-- scheduling -->
     <div class="table-container">
-        <div class="scheduling" id="FCFS" hidden>
+        <div class="scheduling" id="FCFS" >
             <h3>FCFS</h3>
             <div class="Gantt-heading">Process Gantt chart</div>
             <table class="Gantt process">
@@ -142,7 +143,7 @@
                 </tfoot>
             </table>
         </div>
-        <div class="scheduling" id="SJF" hidden>
+        <div class="scheduling" id="SJF" >
             <h3>SJF</h3>
             <div class="Gantt-heading">Process Gantt chart</div>
             <table class="Gantt process">
@@ -190,7 +191,7 @@
             </table>
         </div>
 
-        <div class="scheduling" id="SRTF" hidden>
+        <div class="scheduling" id="SRTF" >
             <h3>SRTF</h3>
             <div class="Gantt-heading">Process Gantt chart</div>
             <table class="Gantt process">
@@ -238,7 +239,7 @@
             </table>
         </div>
 
-        <div class="scheduling" id="PSNP" hidden>
+        <div class="scheduling" id="PSNP" >
             <h3>Priority (non-preemptive)</h3>
             <div class="Gantt-heading">Process Gantt chart</div>
             <table class="Gantt process">
@@ -286,7 +287,7 @@
             </table>
         </div>
 
-        <div class="scheduling" id="PSP" hidden>
+        <div class="scheduling" id="PSP" >
             <h3>Priority (preemptive)</h3>
             <div class="Gantt-heading">Process Gantt chart</div>
             <table class="Gantt process">
